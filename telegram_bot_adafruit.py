@@ -12,7 +12,7 @@ def turnon(update, context):
   send_value(1)
 
 def send_value(value):
-  feed = aio.feeds('light')
+  feed = aio.feeds('bot')
   aio.send_data(feed.key,value)
 
 def input_message(update, context):
