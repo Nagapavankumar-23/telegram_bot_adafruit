@@ -13,7 +13,7 @@ def turnon(update, context):
 
 def send_value(value):
   feed = aio.feeds('bot')
-  aio.send_data(feed.key,value)
+  aio.send_data('feed',value)
 
 def input_message(update, context):
   text=update.message.text
