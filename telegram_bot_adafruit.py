@@ -7,13 +7,6 @@ ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
 ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
 TOKEN = os.getenv('TOKEN')
 
-
-def start(update,context):
-  start_message='''
-/turnoff or 'turn off': To OFF the light
-/turnon or 'turn on': To ON the light
-'''
-  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
     
     
 def turnoff(update, context):
@@ -29,6 +22,17 @@ def send_value(value):
   feed = aio.feeds('bot')
   aio.send_data(feed.key,value)
 
+  
+  
+
+def start(update,context):
+  start_message='''
+/turnoff or 'turn off': To OFF the light
+/turnon or 'turn on': To ON the light
+'''
+  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
+  
+  
 
   def input_message(update, context):
   text=update.message.text
