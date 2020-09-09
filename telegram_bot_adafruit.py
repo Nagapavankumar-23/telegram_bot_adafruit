@@ -14,7 +14,7 @@ def turnoff(update, context):
   send_value(0)
 def turnon(update, context):
   context.bot.send_message(chat_id=update.effective_chat.id, text="Light turned on")
-  context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.123rf.com/photo_23474570_vector-light-bulb-isolated-on-white.html')
+  context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.123rf.com/photo_48123160_stock-vector-bright-glowing-incandescent-light-bulb-on-a-white-background.html')
   send_value(1)
 
 def send_value(value):
@@ -26,7 +26,7 @@ def input_message(update, context):
   if text == 'turn on':
     send_value(1)
     context.bot.send_message(chat_id=update.effective_chat.id,text="Light turned on")
-    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.123rf.com/photo_23474570_vector-light-bulb-isolated-on-white.html')
+    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.123rf.com/photo_48123160_stock-vector-bright-glowing-incandescent-light-bulb-on-a-white-background.html')
   elif text == 'turn off':
     send_value(0)
     context.bot.send_message(chat_id=update.effective_chat.id,text="Light turned off")
