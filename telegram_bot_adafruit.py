@@ -28,6 +28,7 @@ def input_message(update, context):
     context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
 
 
+  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
 
 ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
 ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
