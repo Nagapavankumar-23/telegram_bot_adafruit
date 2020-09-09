@@ -24,13 +24,6 @@ def send_value(value):
 
   
   
-
-def start(update,context):
-  start_message='''
-/turnoff or 'turn off': To OFF the light
-/turnon or 'turn on': To ON the light
-'''
-  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
   
   
 
@@ -46,6 +39,15 @@ def start(update,context):
     context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
     
 
+    
+
+def start(update,context):
+  start_message='''
+/turnoff or 'turn off': To OFF the light
+/turnon or 'turn on': To ON the light
+'''
+  context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
+    
 aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
 updater=Updater(TOKEN,use_context=True)
 dispatcher = updater.dispatcher
