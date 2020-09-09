@@ -14,18 +14,6 @@ def start(update,context):
 /turnon or 'turn on': To ON the light
 '''
   context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
-
-
-  def input_message(update, context):
-  text=update.message.text
-  if text == 'turn on':
-    send_value(1)
-    context.bot.send_message(chat_id=update.effective_chat.id,text="Led turned on")
-    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://img.icons8.com/plasticine/2x/light-on.png')
-  elif text == 'turn off':
-    send_value(0)
-    context.bot.send_message(chat_id=update.effective_chat.id,text="Led turned off")
-    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
     
     
 def turnoff(update, context):
@@ -42,6 +30,17 @@ def send_value(value):
   aio.send_data(feed.key,value)
 
 
+  def input_message(update, context):
+  text=update.message.text
+  if text == 'turn on':
+    send_value(1)
+    context.bot.send_message(chat_id=update.effective_chat.id,text="Led turned on")
+    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://img.icons8.com/plasticine/2x/light-on.png')
+  elif text == 'turn off':
+    send_value(0)
+    context.bot.send_message(chat_id=update.effective_chat.id,text="Led turned off")
+    context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
+    
 
 aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
 updater=Updater(TOKEN,use_context=True)
