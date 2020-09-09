@@ -16,7 +16,7 @@ def send_value(value):
   feed = aio.feeds('bot')
   aio.send_data(feed.key,value)
 
-def input_message(update, context):
+  def input_message(update, context):
   text=update.message.text
   if text == 'turn on':
     send_value(1)
