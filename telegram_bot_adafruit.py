@@ -4,7 +4,7 @@ import os
 
 def turnoff(update, context):
   context.bot.send_message(chat_id=update.effective_chat.id, text="Led turned off")
-  context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://images.app.goo.gl/HMuQrnR9vMqKKQp37.png')
+  context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.seekpng.com/ipng/u2r5i1u2u2i1u2e6_light-bulb-off/.png')
   send_value(0)
   
 def turnon(update, context):
