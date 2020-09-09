@@ -28,8 +28,8 @@ def input_message(update, context):
 
 def start(update,context):
   start_message='''
-/turnoff or 'turn off'
-/turnon or 'turn on'  
+/turnoff or 'turn off': To OFF the light
+/turnon or 'turn on': To ON the light
 '''
   context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
 
