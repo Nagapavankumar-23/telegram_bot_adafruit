@@ -2,10 +2,12 @@ from telegram.ext import Updater,CommandHandler,MessageHandler,Filters
 from Adafruit_IO import Client,Data
 import os
 
+
 ADAFRUIT_IO_USERNAME = os.getenv('ADAFRUIT_IO_USERNAME')
 ADAFRUIT_IO_KEY = os.getenv('ADAFRUIT_IO_KEY')
 TOKEN = os.getenv('TOKEN')
-    
+aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
+
 def turnoff(update, context):
   context.bot.send_message(chat_id=update.effective_chat.id, text="Led turned off")
   context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
@@ -19,7 +21,7 @@ def send_value(value):
   feed = aio.feeds('bot')
   aio.send_data(feed.key,value)
 
-  def input_message(update, context):
+def input_message(update, context):
   text=update.message.text
   if text == 'turn on':
     send_value(1)
@@ -29,15 +31,15 @@ def send_value(value):
     send_value(0)
     context.bot.send_message(chat_id=update.effective_chat.id,text="Led turned off")
     context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://pngimg.com/uploads/bulb/bulb_PNG1241.png')
-    
-  def start(update,context):
+
+def start(update,context):
   start_message='''
-    /turnoff or 'turn off': To OFF the light
-    /turnon or 'turn on': To ON the light
-    '''
+/turnoff or 'turn off':To turn of the led ,sends value=0 in feed
+/turnon or 'turn on'  :To turn on the led ,sends value=1 in feed
+'''
   context.bot.send_message(chat_id=update.effective_chat.id, text=start_message)
-    
-aio = Client(ADAFRUIT_IO_USERNAME,ADAFRUIT_IO_KEY)
+
+
 updater=Updater(TOKEN,use_context=True)
 dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler('turnoff',turnoff))
