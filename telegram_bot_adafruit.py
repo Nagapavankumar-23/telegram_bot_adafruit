@@ -31,6 +31,7 @@ def input_message(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,text="Light turned off")
     context.bot.send_photo(chat_id=update.effective_chat.id,photo='https://www.123rf.com/photo_12676342_filament-lamp-on-a-white-background-illustration-for-design.html')
 
+    
 def start(update,context):
   start_message='''
 /turnoff :To turn OFF the Light
